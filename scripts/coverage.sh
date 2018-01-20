@@ -1,10 +1,12 @@
 #!/bin/bash
 
 PROJECT="Byte"
-CODECOV_TOKEN="b78be498-3950-404c-9c76-9eba59f2c260"
 
 if [[ -z "${TRAVIS_JOB_ID}" ]]; then
     echo "TRAVIS_JOB_ID is not defined."
+
+elif [[ -z "${CODECOV_TOKEN}" ]]; then
+    echo "CODECOV_TOKEN is not defined."
 
 else
     # Generate xcodeproj
@@ -50,5 +52,5 @@ else
 
     # Clean
     rm -r .coverage
-    rm -r Byte.xcodeproj
+    rm -r $PROJECT.xcodeproj
 fi
